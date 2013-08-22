@@ -152,6 +152,10 @@ namespace AngelList.Business
 
 		private static void SaveDailyActivity(Dictionary<Entity, List<Investment>> dic)
 		{
+			if (dic.Count == 0)
+			{
+				return;
+			}
 			Dictionary<Entity, List<Investment>> toSave = new Dictionary<Entity, List<Investment>>();
 			foreach (var item in dic)
 			{

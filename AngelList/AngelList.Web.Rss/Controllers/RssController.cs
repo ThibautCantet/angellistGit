@@ -83,7 +83,7 @@ namespace AngelList.Web.Rss.Controllers
 
 			ExecutionUpdater.UpdateRss();
 
-			Log.Info("RssFeed", "update");
+			Log.Info("RssFeed", "refresh new feeds");
 
 			return new RssFeed(title: "Angel list feed",
 							   items: news,
@@ -127,7 +127,7 @@ namespace AngelList.Web.Rss.Controllers
 				}
 			}
 
-			Log.Info("RssFeed", "all feeds");
+			Log.Info("RssFeed", "refresh all feeds");
 
 			return new RssFeed(title: "Angel list all feeds",
 							   items: news,

@@ -27,7 +27,7 @@ namespace AngelList.Business.CRM
 						}
 					}
 					string info = string.Join("<br />", descriptions);
-
+						
 					DailyReport.Send(info);
 
 					ExecutionUpdater.UpdateCrmSent();
