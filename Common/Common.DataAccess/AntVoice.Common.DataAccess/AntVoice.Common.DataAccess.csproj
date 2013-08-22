@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CBB6AA8-CFB1-47C9-A4F5-CF2502A33744}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AntVoice.Common.DataAccess</RootNamespace>
+    <AssemblyName>AntVoice.Common.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'LOCAL|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PREPROD|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STAGE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\ExternalLibraries\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\ExternalLibraries\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Neo4jClient, Version=1.0.0.547, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalLibraries\Neo4jClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalLibraries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigDataAccess.cs" />
+    <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="GraphDataAccess.cs" />
+    <Compile Include="Notification\CatalogEntityNotificationSender.cs" />
+    <Compile Include="Notification\UserActedNotificationSender.cs" />
+    <Compile Include="Notification\WidgetDisplayedNotificationSender.cs" />
+    <Compile Include="ProductDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecommendationDataAccess.cs" />
+    <Compile Include="StatisticsDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AntVoice.Common.Entities\AntVoice.Common.Entities.csproj">
+      <Project>{cbe643a7-c359-4243-99ef-ce8d7ac52bb1}</Project>
+      <Name>AntVoice.Common.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AntVoice.Common.Tools\AntVoice.Common.Tools.csproj">
+      <Project>{f064c874-4eb9-4638-b07f-588d24201d06}</Project>
+      <Name>AntVoice.Common.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.FacebookClient\AntVoice.Common.DataAccess.FacebookClient.csproj">
+      <Project>{8715f567-5327-4695-ad82-3b59c12d1226}</Project>
+      <Name>AntVoice.Common.DataAccess.FacebookClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.MongoClient\AntVoice.Common.DataAccess.MongoClient.csproj">
+      <Project>{41d26ec8-5113-47af-8ab7-ffc46c970e4f}</Project>
+      <Name>AntVoice.Common.DataAccess.MongoClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.MSMQClient\AntVoice.Common.DataAccess.MSMQClient.csproj">
+      <Project>{69e33d00-bcfc-4d12-8276-42ba6fa7c5cf}</Project>
+      <Name>AntVoice.Common.DataAccess.MSMQClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.NeoClient\AntVoice.Common.DataAccess.NeoClient.csproj">
+      <Project>{4b3e27ac-e474-4184-88c0-7d62454b119a}</Project>
+      <Name>AntVoice.Common.DataAccess.NeoClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.RedisClient\AntVoice.Common.DataAccess.RedisClient.csproj">
+      <Project>{ca748f29-db04-4107-83da-8bc63416898a}</Project>
+      <Name>AntVoice.Common.DataAccess.RedisClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AntVoice.Common.DataAccess.SqlServerClient\AntVoice.Common.DataAccess.SqlServerClient.csproj">
+      <Project>{5fa47839-e631-4b6b-83ac-8a5f34e0be07}</Project>
+      <Name>AntVoice.Common.DataAccess.SqlServerClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

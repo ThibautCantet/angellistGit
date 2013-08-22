@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55601A2B-EB81-4076-8484-D333508158CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AngelList.Business</RootNamespace>
+    <AssemblyName>AngelList.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalLibrairies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="CRM\CrmReport.cs" />
+    <Compile Include="ExecutionUpdater.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IncubationStream.cs" />
+    <Compile Include="InvestmentStream.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FeedStream.cs" />
+    <Compile Include="StartupRoleStream.cs" />
+    <Compile Include="StartupStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Tools\Common.Tools.csproj">
+      <Project>{f064c874-4eb9-4638-b07f-588d24201d06}</Project>
+      <Name>Common.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AngelList.Crm\AngelList.Crm.csproj">
+      <Project>{2864c5d4-0778-4ce7-aa7c-615007bf79a2}</Project>
+      <Name>AngelList.Crm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AngelList.DataAccess\AngelList.DataAccess.csproj">
+      <Project>{e7675add-3748-4b4b-a853-572c775b931a}</Project>
+      <Name>AngelList.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AngelList.DataEntities\AngelList.DataEntities.csproj">
+      <Project>{8382c415-b8d5-4478-9afb-f74aacb3225e}</Project>
+      <Name>AngelList.DataEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AngelList.Entities\AngelList.Entities.csproj">
+      <Project>{682ecec5-16b3-41b9-9b14-ebc6c1bf80e2}</Project>
+      <Name>AngelList.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

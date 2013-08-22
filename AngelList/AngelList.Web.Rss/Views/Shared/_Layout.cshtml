@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+                @RenderBody()
+        </div>
+        <footer>
+            <div class="content-wrapper">
+             
+            </div>
+        </footer>
+
+		
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+		<script>
+			$(document).ready(function () {
+				var user = $.ajax({
+					type: 'POST',
+					url: '/Rss/RssFeed',
+					data: {},
+					success: function (data) {
+						alert("success");
+					},
+					error: function () {
+					}
+				});
+			});
+			
+
+		</script>
+    </body>
+</html>
